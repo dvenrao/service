@@ -1,11 +1,18 @@
 Service::Application.routes.draw do
+  resources :posts
+
+
   devise_for :admins
 
   get "home/index"
+  get "locality/index"
 
   devise_for :users
 
-  devise_for :admins
+  resources :categories do
+    resources :posts
+  end
+
 
   #devise_for :admin, :controllers => { :sessions => "admins/sessions" }
 

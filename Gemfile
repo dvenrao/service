@@ -38,4 +38,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'devise'
+gem 'gmaps4rails'
 
