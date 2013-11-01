@@ -5,6 +5,9 @@ Service::Application.routes.draw do
   devise_for :admins
 
   get "home/index"
+  get "home/half_map"
+  get "home/full_map"
+
   get "locality/index"
 
   devise_for :users
