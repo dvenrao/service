@@ -5,6 +5,7 @@ class CreateLocalities < ActiveRecord::Migration
       t.decimal :latitude,:precision => 10, :scale => 8
       t.decimal :longitude,:precision => 10, :scale => 8
       t.string :city
+      t.boolean :status,:default => false
 
       t.timestamps
     end

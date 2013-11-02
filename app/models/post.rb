@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :city, :description, :locality_id, :mobile_no, :price, :title, :type, :you_are
+  attr_accessible :category_id, :city, :description, :locality_id, :mobile_no, :title, :service_type
   belongs_to :category
   belongs_to :locality
   validates :title, presence: true,

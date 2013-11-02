@@ -1,6 +1,6 @@
-<%= form_for(@post) do |f| %>
+<%= form_for @post,:html => {:multipart => true, :role => 'form'} do |f| %>
   <% if @post.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-warning">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
@@ -10,40 +10,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :locality_id %><br />
-    <%= f.number_field :locality_id %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :you_are %><br />
-    <%= f.text_field :you_are %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile_no %><br />
-    <%= f.text_field :mobile_no %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <div class="col-md-6">
+   <div class="form-group">
+     <%= f.label :category %>
+     <%= f.select :category_id, options_for_select(@categories.map{|p| [p.name, p.id]}),{}, { :class => 'form-control'} %>
+   </div>
+   <div class="form-group">
+     <%= f.label :locality %>
+     <%= f.select :locality_id, options_for_select(@localities.map{|p| [p.name, p.id]}),{}, { :class => 'form-control'} %>
+   </div>
+   <div class="form-group">
+     <%= f.label :title %>
+     <%= f.text_field :title,{:class => 'form-control',:placeholder => 'Enter title'} %>
+   </div>
+   <div class="form-group">
+     <%= f.label :description %>
+     <%= f.text_area :description,{:class => 'form-control',:placeholder => 'Enter description', :rows => 4} %>
+   </div>
+   <!--<div class="form-group">-->
+     <!--<%#= f.label :city %>-->
+     <!--<%#= f.select(:city, indian_cities,{}, {:class => 'form-control'}) %>-->
+     <%= f.hidden_field :city, :value=>"hyderabad" %>
+   <!--</div>-->
+   <div class="form-group">
+     <%= f.label :type %>
+     <div class="radio"><label><%= f.radio_button(:service_type, "customer") %>I want to get service</label></div>
+     <div class="radio"> <label><%= f.radio_button(:service_type, "server") %>I want to post service</label></div>
+   </div>
+   <!--<div class="form-group">-->
+     <!--<%#= f.label :you_are %>-->
+     <!--<%#= f.text_field :you_are,{:class => 'form-control',:placeholder => 'Enter you_are'} %>-->
+   <!--</div>-->
+   <!--<div class="form-group">-->
+     <!--<%#= f.label :price %>-->
+     <!--<%#= f.number_field :price,{:class => 'form-control',:placeholder => 'Enter price'} %>-->
+   <!--</div>-->
+   <div class="form-group">
+     <%= f.label :mobile_no %>
+     <%= f.text_field :mobile_no,{:class => 'form-control',:placeholder => 'Enter mobile_no'} %>
+   </div>
+    <%= f.submit 'Submit', :class => 'btn btn-success' %>
+ </div>
 <% end %>

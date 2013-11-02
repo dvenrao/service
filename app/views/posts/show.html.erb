@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Category:</b>
+  <%= @post.category.name if @post.category %>
+</p>
+
+<p>
+  <b>Locality:</b>
+  <%= @post.locality.name if @post.locality %>
+</p>
+
+<p>
   <b>Title:</b>
   <%= @post.title %>
 </p>
@@ -15,25 +25,13 @@
   <%= @post.city %>
 </p>
 
-<p>
-  <b>Locality:</b>
-  <%= @post.locality_id %>
-</p>
+
 
 <p>
   <b>Type:</b>
-  <%= @post.type %>
+  <%= @post.service_type %>
 </p>
 
-<p>
-  <b>You are:</b>
-  <%= @post.you_are %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @post.price %>
-</p>
 
 <p>
   <b>Mobile no:</b>
