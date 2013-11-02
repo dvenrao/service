@@ -11,9 +11,14 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li><a href="/home/index">List view</a></li>
-        <li><a href="/home/half_map">HafMap</a></li>
+        <li><a href="/home/half_map">HalfMap</a></li>
         <li><a href="/home/full_map">FullMap</a></li>
         <li><a href="#contact">Contact</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to 'Post Free Ad', new_post_path, :class => 'navbar-link' %></li>
+        <li><p style="padding-top: 6px;"><%= select_tag(:city, options_for_select(indian_cities), {:class => 'form-control'}) %></p></li>
       </ul>
     </div><!-- /.nav-collapse -->
   </div><!-- /.container -->
