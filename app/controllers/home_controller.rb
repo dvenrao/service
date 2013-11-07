@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   layout 'fluid'
 
   def index
+    @posts = Post.all
     render :layout => 'fluid'
   end
 
