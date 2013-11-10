@@ -5,7 +5,9 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'pg'
+
+gem 'rails_12factor', group: :production
 
 
 # Gems used only for assets and not required
@@ -37,7 +39,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem 'devise'
+gem 'devise', '~> 2.2.3'
 gem 'gmaps4rails'
 gem "geocoder"
 
