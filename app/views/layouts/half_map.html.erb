@@ -56,131 +56,34 @@
 <div class="container">
 
   <div class="row">
-    <%= yield %>
-  </div>
-  <!--<hr>-->
-  <div class="row">
-    <div class="col-sm-6">
-      <div style='width: 550px;'>
-        <div id="map" style='width: 550px; height: 600px;'></div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img alt="100x100" class="img-thumbnail" data-src="holder.js/200x200" style="width: 100px; height: 100px;" src="">
-                </div>
-                <div class="col-sm-9">
-                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                </div>
-              </div>
-            </div>
+    <%= form_for '',:html => {:multipart => true, :role => 'form'} do |f| %>
+        <div class="row">
+          <div class="col-xs-2">
+            <select class="form-control">
+              <option value="">Hyderabad</option>
+            </select>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img alt="100x100" class="img-thumbnail" data-src="holder.js/200x200" style="width: 100px; height: 100px;" src="">
-                </div>
-                <div class="col-sm-9">
-                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                </div>
-              </div>
-            </div>
+          <div class="col-xs-2">
+            <%= f.select :category_id, options_for_select(@categories.map{|p| [p.name, p.id]}),{}, { :class => 'form-control'} %>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-9">
-                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                </div>
-                <div class="col-xs-4 col-md-3">
-                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-              </div>
-            </div>
+          <div class="col-xs-3">
+            <%= f.select :locality_id, options_for_select(@localities.map{|p| [p.name, p.id]}),{}, { :class => 'form-control'} %>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-9">
-                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                </div>
-                <div class="col-xs-4 col-md-3">
-                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-              </div>
-            </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" placeholder="Search area service more">
+            <span class="help-block">Ex:Carpenter in Begumpet </span>
           </div>
-        </div>
-      </div>
+          <div class="col-xs-2">
+            <button type="button" class="btn btn-success">Search</button>
+          </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-9">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
         </div>
-        <div class="col-xs-4 col-md-3">
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-9">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
-        <div class="col-xs-4 col-md-3">
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-9">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
-        <div class="col-xs-4 col-md-3">
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-9">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
-        <div class="col-xs-4 col-md-3">
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-    </div>
+    <% end %>
+
   </div>
+  <%= yield %>
+  <!--<hr>-->
+
 
   <hr>
 

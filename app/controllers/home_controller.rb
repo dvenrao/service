@@ -8,19 +8,25 @@ class HomeController < ApplicationController
   end
 
   def half_map
-    @areas = Locality.all
-    @hash = Gmaps4rails.build_markers(@areas) do |area, marker|
-      marker.lat area.latitude
-      marker.lng area.longitude
+    #@localities = Locality.all
+    @categories = Category.all
+    @localities = []
+    @posts = Post.paginate(:page => params[:page])
+    @posts.each do |post|
+      @localities << post.locality
+    end
+    @hash = Gmaps4rails.build_markers(@localities) do |locality, marker|
+      marker.lat locality.latitude
+      marker.lng locality.longitude
     end
     render :layout => 'half_map'
   end
 
   def full_map
-    @areas = Locality.all
-    @hash = Gmaps4rails.build_markers(@areas) do |area, marker|
-      marker.lat area.latitude
-      marker.lng area.longitude
+    @localities = Locality.all
+    @hash = Gmaps4rails.build_markers(@localities) do |locality, marker|
+      marker.lat locality.latitude
+      marker.lng locality.longitude
     end
     render :layout => 'full_map'
   end

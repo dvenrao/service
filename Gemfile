@@ -41,3 +41,5 @@ gem 'devise'
 gem 'gmaps4rails'
 gem "geocoder"
 
+
+gem 'will_paginate', '~> 3.0'
