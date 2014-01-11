@@ -29,8 +29,13 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
+    capistrano (3.0.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 0.0.23)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -45,6 +50,8 @@ GEM
       warden (~> 1.2.1)
     erubis (2.7.0)
     execjs (2.0.2)
+    geocoder (1.1.9)
+    gmaps4rails (2.1.1)
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -58,7 +65,11 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     multi_json (1.8.2)
+    mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -76,6 +87,11 @@ GEM
       activesupport (= 3.2.11)
       bundler (~> 1.0)
       railties (= 3.2.11)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (3.2.11)
       actionpack (= 3.2.11)
       activesupport (= 3.2.11)
@@ -96,8 +112,15 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sshkit (1.3.0)
+      net-scp (>= 1.1.2)
+      net-ssh
+      term-ansicolor
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
     thor (0.18.1)
     tilt (1.4.1)
+    tins (0.13.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -107,15 +130,22 @@ GEM
       json (>= 1.8.0)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
+  capistrano
   coffee-rails (~> 3.2.1)
-  devise
+  devise (~> 2.2.3)
+  geocoder
+  gmaps4rails
   jquery-rails
   mysql2
   rails (= 3.2.11)
+  rails_12factor
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)
